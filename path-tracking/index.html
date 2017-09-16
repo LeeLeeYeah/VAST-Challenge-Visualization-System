@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 800px;
+            width: 1000px;
+            box-sizing: border-box;
+        }
+    </style>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<title>Path Tracking</title>
+<link rel="pingback" href="../xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="wordpress/wp-content/themes/kasa-green/js/html5.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Comments Feed" href="../comments/feed/index.html" />
+<link rel='stylesheet' id='kasa-green-style-css'  href='../wp-content/themes/kasa-green/style.css' type='text/css' media='all' />
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.1" />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='wordpress/?p=18' />
+</head>
+<body class="page page-id-18 page-template page-template-template-no-sidebar page-template-template-no-sidebar-php">
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="gutter clearfix">
+											<a class="logo" href="../index.html"><span class="color_orange">Visualization System</span><span class="italic"></span></a>
+															<div class="clear"></div>
+					<nav class="menucontainer clearfix">
+												   <ul class="menutop"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>												
+						<a class="menuicon" href="index.html#" >Menu</a>
+												   <ul class="menutopmob"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>											</nav>
+				</div>
+			</div>
+		</header>  		<div class="page_title">
+			<div class="container">
+				<div class="gutter">
+					<p>Path Tracking</p>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="container">
+				<div class="ourservices_block columnwrapp clearfix">
+					<div class="column1">
+						<div class="gutter">
+							<a class="servicelink">
+							<form name="input" action="tracker.html" method="get">
+								<br></br>
+							    <span class="service_title">Enter ID to show</span>
+								<br></br>UserID:
+								<input type="text" name="userid" />
+								<input type="submit" id ="myButton" value="Submit" />
+								<br></br>
+								<br></br>
+							</form>
+							</a>
+						</div>
+					</div>
+					<p align="center">These are some examples detected from us for the tracking path visualization</p>
+				<br></br>
+					<div class="column3">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=1983765_fri">
+							    <img class="fullwidth" src="Criminal.jpg" widht="300" height="100" alt="" /><span class="service_title">Criminal - Fri</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+					<div class="column3">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=1983765_sat">
+							    <img class="fullwidth" src="Criminal.jpg" widht="300" height="100" alt="" /><span class="service_title">Criminal - Sat</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+					<div class="column3">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=1983765_sun">
+							    <img class="fullwidth" src="Criminal.jpg" widht="300" height="100" alt="" /><span class="service_title">Criminal - Sun</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+				    <div class="column2">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=657863_fri">
+							    <img class="fullwidth" src="Adobe.jpg" widht="300" height="100" alt="" /><span class="service_title">Interesiting One - Fri</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+				    <div class="column2">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=657863_sat">
+							    <img class="fullwidth" src="Adobe.jpg" widht="300" height="100" alt="" /><span class="service_title">Interesiting One - Sat</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+					<div class="column2">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=258464_sat">
+							    <img class="fullwidth" src="Marathon.png" widht="300" height="100" alt="" /><span class="service_title">Marathon - Sat</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+					<div class="column2">
+						<div class="gutter">
+							<a class="servicelink" href="tracker.html?userid=258464_sun">
+							    <img class="fullwidth" src="Marathon.png" widht="300" height="100" alt="" /><span class="service_title">Marathon - Sun</span>
+								<span class="inner"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+         <footer id="footer">
+			<div class="container">
+				<div class="columnwrapp clearfix">
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-6" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-4" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-5" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-7" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+				</div>
+				<div class="copyright_block gutter clearfix">
+					<ul class="menufooter">
+						<li></li>
+					</ul>
+					<p class="copyright"></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+<script type='text/javascript' src='../wp-content/themes/kasa-green/js/main.js?ver=1.0'></script>
+    <link href="../js/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="../js/d3.js" charset="utf-8"></script>
+    <script src="../js/nv.d3.js"></script>
+</script>
+</body>
+</html>

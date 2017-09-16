@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<style>
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+        }
+        #chart1, svg {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .TimeText{
+            fill: #111111;
+            text-align: right;
+            font-size: 20px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+        }
+    .q0-9 { stroke:rgb(247,251,255); }
+    .q1-9 { stroke:rgb(222,235,247); }
+    .q2-9 { stroke:rgb(198,219,239); }
+    .q3-9 { stroke:rgb(158,202,225); }
+    .q4-9 { stroke:rgb(107,174,214); }
+    .q5-9 { stroke:rgb(66,146,198); }
+    .q6-9 { stroke:rgb(33,113,181); }
+    .q7-9 { stroke:rgb(8,81,156); }
+    .q8-9 { stroke:rgb(8,48,107); }
+    </style>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<title></title>
+<link rel="pingback" href="../xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="wordpress/wp-content/themes/kasa-green/js/html5.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Comments Feed" href="../comments/feed/index.html" />
+<link rel='stylesheet' id='kasa-green-style-css'  href='../wp-content/themes/kasa-green/style.css' type='text/css' media='all' />
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.1" />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='wordpress/?p=18' />
+</head>
+   <body>
+  <div id="wrapper">
+    <header id="header">
+      <div class="container">
+        <div class="gutter clearfix">
+                      <a class="logo" href="../index.html"><span class="color_orange">Visualization System</span><span class="italic"></span></a>
+                              <div class="clear"></div>
+          <nav class="menucontainer clearfix">
+                           <ul class="menutop"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>                       
+            <a class="menuicon" href="index.html#" >Menu</a>
+                           <ul class="menutopmob"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>                     </nav>
+        </div>
+      </div>
+    </header>     <div class="page_title">
+      <div class="container">
+        <div class="gutter">
+          <p>Path Tracking</p>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+          <p align="center">Press <a>enter</a> to go forward | <a>Esc</a> to back up</p>
+          <br></br>
+      <div id="container" class="container"  align="center">
+                  <div id="chart1" class="chart">
+                  </div>
+                  </div>
+      </div>
+    </div>
+    
+         <footer id="footer">
+      <div class="container">
+        <div class="columnwrapp clearfix">
+          <div class="column4">
+            <div class="gutter">
+                            <aside id="text-6" class="widget widget_text">      <div class="textwidget"></div>
+    </aside>                          </div>
+          </div>
+          <div class="column4">
+            <div class="gutter">
+                            <aside id="text-4" class="widget widget_text">      <div class="textwidget"></div>
+    </aside>                          </div>
+          </div>
+          <div class="column4">
+            <div class="gutter">
+                            <aside id="text-5" class="widget widget_text">      <div class="textwidget"></div>
+    </aside>                          </div>
+          </div>
+          <div class="column4">
+            <div class="gutter">
+                            <aside id="text-7" class="widget widget_text">      <div class="textwidget"></div>
+    </aside>                          </div>
+          </div>
+        </div>
+        <div class="copyright_block gutter clearfix">
+          <ul class="menufooter">
+            <li></li>
+          </ul>
+          <p class="copyright"></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+<script type='text/javascript' src='../wp-content/themes/kasa-green/js/main.js?ver=1.0'></script>
+    <link href="../js/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="../js/d3.js" charset="utf-8"></script>
+    <script src="../js/nv.d3.js"></script>
+    <script src="ParraldataG.js"></script>
+     <script src="tracker.js"></script>
+   </body>
+</html>

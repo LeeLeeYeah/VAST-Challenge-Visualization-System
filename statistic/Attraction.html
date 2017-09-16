@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<style>
+        text {
+            font: 12px sans-serif;
+        }
+        text {
+            font: 12px sans-serif;
+        }
+        svg {
+            display: block;
+            float: left;
+            height: 300px !important;
+            width: 300px !important;
+        }
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<title>Duration in 4 Attraction of 12 Groups</title>
+<link rel="pingback" href="../xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="wordpress/wp-content/themes/kasa-green/js/html5.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Comments Feed" href="../comments/feed/index.html" />
+<link rel='stylesheet' id='kasa-green-style-css'  href='../wp-content/themes/kasa-green/style.css' type='text/css' media='all' />
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.1" />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='wordpress/?p=18' />
+</head>
+<body class="page page-id-18 page-template page-template-template-no-sidebar page-template-template-no-sidebar-php">
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="gutter clearfix">
+											<a class="logo" href="../index.html"><span class="color_orange">Visualization System</span><span class="italic"></span></a>
+															<div class="clear"></div>
+					<nav class="menucontainer clearfix">
+												   <ul class="menutop"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>												
+						<a class="menuicon" href="index.html#" >Menu</a>
+												   <ul class="menutopmob"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>											</nav>
+				</div>
+			</div>
+		</header>  		<div class="page_title">
+			<div class="container">
+				<div class="gutter">
+					<p>Duration in 4 Attraction of 12 Groups - Pie Chart</p>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="container">
+			<div id="chart1" class='with-3d-shadow with-transitions'>
+		<svg id="test0" class="mypiechart"></svg>
+<svg id="test1" class="mypiechart"></svg>
+<svg id="test2" class="mypiechart"></svg>
+<svg id="test3" class="mypiechart"></svg>
+<svg id="test4" class="mypiechart"></svg>
+<svg id="test5" class="mypiechart"></svg>
+<svg id="test6" class="mypiechart"></svg>
+<svg id="test7" class="mypiechart"></svg>
+<svg id="test8" class="mypiechart"></svg>
+<svg id="test9" class="mypiechart"></svg>
+<svg id="test10" class="mypiechart"></svg>
+<svg id="test11" class="mypiechart"></svg>
+							    </div>
+			</div>
+			</div>
+		</div>
+	</div>
+<script type='text/javascript' src='../wp-content/themes/kasa-green/js/main.js?ver=1.0'></script>
+    <meta charset="utf-8">
+    <link href="../js/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="../js/d3.min.js" charset="utf-8"></script>
+    <script src="../js/nv.d3.js"></script>
+    <script src="../js/lib/stream_layers.js"></script>
+
+<script>
+d3.csv("stayTimeAttraction.csv", function(data) {
+  dataset = data.map(function(d) {
+    return [ +d["stayTimeAttraction1"], +d["stayTimeAttraction2"], d["stayTimeAttraction3"], d["stayTimeAttraction9"]];
+  });
+    var i = 0;
+    var testdata1 = [
+        {key: "G1Attraction1", y: dataset[i][0]},
+        {key: "G1Attraction2", y: dataset[i][1]},
+        {key: "G1Attraction3", y: dataset[i][2]},
+        {key: "G1Attraction9", y: dataset[i][3]}
+    ];
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test0")
+            .datum(testdata1)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+
+        return chart;
+    });
+    var i = 1;
+    var testdata2 = [
+        {key: "G2Attraction1", y: dataset[i][0]},
+        {key: "G2Attraction2", y: dataset[i][1]},
+        {key: "G2Attraction3", y: dataset[i][2]},
+        {key: "G2Attraction9", y: dataset[i][3]}
+    ];
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test1")
+            .datum(testdata2)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+
+        return chart;
+    });
+    var i = 2;
+    var testdata3 = [
+        {key: "G3Attraction1", y: dataset[i][0]},
+        {key: "G3Attraction2", y: dataset[i][1]},
+        {key: "G3Attraction3", y: dataset[i][2]},
+        {key: "G3Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata3);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test2")
+            .datum(testdata3)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+
+        return chart;
+    });
+    var i = 3;
+    var testdata4 = [
+        {key: "G4Attraction1", y: dataset[i][0]},
+        {key: "G4Attraction2", y: dataset[i][1]},
+        {key: "G4Attraction3", y: dataset[i][2]},
+        {key: "G4Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata4);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test3")
+            .datum(testdata4)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 4;
+    var testdata5 = [
+        {key: "G5Attraction1", y: dataset[i][0]},
+        {key: "G5Attraction2", y: dataset[i][1]},
+        {key: "G5Attraction3", y: dataset[i][2]},
+        {key: "G5Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata5);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test4")
+            .datum(testdata5)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 5;
+    var testdata6 = [
+        {key: "G6Attraction1", y: dataset[i][0]},
+        {key: "G6Attraction2", y: dataset[i][1]},
+        {key: "G6Attraction3", y: dataset[i][2]},
+        {key: "G6Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata6);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test5")
+            .datum(testdata6)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 6;
+    var testdata7 = [
+        {key: "G7Attraction1", y: dataset[i][0]},
+        {key: "G7Attraction2", y: dataset[i][1]},
+        {key: "G7Attraction3", y: dataset[i][2]},
+        {key: "G7Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata7);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test6")
+            .datum(testdata7)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 7;
+    var testdata8 = [
+        {key: "G8Attraction1", y: dataset[i][0]},
+        {key: "G8Attraction2", y: dataset[i][1]},
+        {key: "G8Attraction3", y: dataset[i][2]},
+        {key: "G8Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata8);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test7")
+            .datum(testdata8)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 8;
+    var testdata9 = [
+        {key: "G9Attraction1", y: dataset[i][0]},
+        {key: "G9Attraction2", y: dataset[i][1]},
+        {key: "G9Attraction3", y: dataset[i][2]},
+        {key: "G9Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata9);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test8")
+            .datum(testdata9)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 9;
+    var testdata10 = [
+        {key: "G10Attraction1", y: dataset[i][0]},
+        {key: "G10Attraction2", y: dataset[i][1]},
+        {key: "G10Attraction3", y: dataset[i][2]},
+        {key: "G10Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata10);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test9")
+            .datum(testdata10)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 10;
+    var testdata11 = [
+        {key: "G11Attraction1", y: dataset[i][0]},
+        {key: "G11Attraction2", y: dataset[i][1]},
+        {key: "G11Attraction3", y: dataset[i][2]},
+        {key: "G11Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata11);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test10")
+            .datum(testdata11)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+    var i = 11;
+    var testdata12 = [
+        {key: "G12Attraction1", y: dataset[i][0]},
+        {key: "G12Attraction2", y: dataset[i][1]},
+        {key: "G12Attraction3", y: dataset[i][2]},
+        {key: "G12Attraction9", y: dataset[i][3]}
+    ];
+    console.log(testdata12);
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .title('Group1')
+            .x(function(d) { return d.key })
+            .y(function(d) { return d.y })
+            .width(300)
+            .height(300);
+        d3.select("#test11")
+            .datum(testdata12)
+            .transition().duration(1200)
+            .attr('width', 300)
+            .attr('height', 300)
+            .call(chart);
+        return chart;
+    });
+});
+</script>
+</body>
+</html>

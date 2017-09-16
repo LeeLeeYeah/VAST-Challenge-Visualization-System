@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<style>
+        text {
+            font: 12px sans-serif;
+        }
+        .TimeText{
+            fill: #000000;
+            text-align: right;
+            font-size: 20px;
+            font-family: "微软雅黑";
+            font-weight: bold;
+        }
+        .tooltip {
+            font-size: 14px;
+            margin: 100px 0px 0px 0px;
+            width: auto;
+            height: auto;
+            position: absolute;
+            text-align: center;
+            border-style: solid;
+            border-width: 1px;
+            background-color: white;
+            border-radius: 3px;
+            overflow: hidden;
+            z-index: 3;
+        }
+    </style>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<title>Heat Map</title>
+<link rel="pingback" href="../xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="wordpress/wp-content/themes/kasa-green/js/html5.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Comments Feed" href="../comments/feed/index.html" />
+<link rel='stylesheet' id='kasa-green-style-css'  href='../wp-content/themes/kasa-green/style.css' type='text/css' media='all' />
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.1" />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='wordpress/?p=18' />
+</head>
+<body class="page page-id-18 page-template page-template-template-no-sidebar page-template-template-no-sidebar-php">
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="gutter clearfix">
+											<a class="logo" href="../index.html"><span class="color_orange">Visualization System</span><span class="italic"></span></a>
+															<div class="clear"></div>
+					<nav class="menucontainer clearfix">
+												   <ul class="menutop"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>												
+						<a class="menuicon" href="index.html#" >Menu</a>
+												   <ul class="menutopmob"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>											</nav>
+				</div>
+			</div>
+		</header>  
+		<div class="page_title">
+			<div class="container">
+				<div class="gutter">
+					<p>Heat Map</p>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="container" class="container"  align="center">
+									<p>
+										<a href="index.html">June 6th, Friday</a> |
+							    		<a href="index1.html">June 7th, Saturday</a> |
+							    		<span href="index2.html">June 8th, Sunday</span>
+							    		<br></br>
+							    	</p>
+							    </div>
+			</div>
+		</div>
+<script type='text/javascript' src='../wp-content/themes/kasa-green/js/main.js?ver=1.0'></script>
+    <link href="../js/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="../js/d3.js" charset="utf-8"></script>
+    <script src="./做一个简单的图表_files/friData.js" charset="utf-8"></script>
+    <script src="./做一个简单的图表_files/satData.js" charset="utf-8"></script>
+    <script src="./做一个简单的图表_files/sunData.js" charset="utf-8"></script>
+    <script>
+        
+        var tooltip = d3.select("#container")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0.0);
+
+        var width = 593;	//画布的宽度
+        var height = 589;	//画布的高度
+
+        var svg = d3.select("#container")				//选择文档中的body元素
+                    .append("svg")				//添加一个svg元素
+                    .attr("width", width)		//设定宽度
+                    .attr("height", height)	//设定高度
+                    .attr("align","center");
+
+
+        var dataset = sunData[0].data;
+        maxX = 100;
+        maxY = 100;
+        maxCount = 400;        
+        
+        var xx = d3.scale.linear()
+            .domain([0, maxX + 1])
+            .range([0, width]);
+        var yy = d3.scale.linear()
+            .domain([0, maxY + 1])
+            .range([height, 0]);
+        /*var color = d3.scale.linear()
+            .domain([0, maxCount])
+            .range(["#fff", "#000"]);*/
+    var red = d3.rgb(255,0,0);  
+    var blue = d3.rgb(255,255,255);         
+    color = d3.interpolate(blue,red);        //颜色插值函数
+        var rectHeight = 25;	//每个矩形所占的像素高度(包括空白)
+
+        function draw() {
+            var updateRect = svg.selectAll("rect")
+					.data(dataset);
+            //获取矩形的enter部分
+            var enterRect = updateRect.enter();
+            //获取矩形的exit部分
+            var exitRect = updateRect.exit();
+
+            updateRect
+              .attr("x", function (d, i) {
+                  return xx(d.x);
+              })
+              .attr("y", function (d, i) {
+                  //console.log(d)
+                  return yy(d.y);
+              })
+              .attr("width", xx(1) - 1)
+              .attr("height", yy(1) - yy(2) - 1)
+              .style("fill", function (d) { return color(d.count*1.0/maxCount); });
+
+            enterRect.append("rect")
+                .attr("x", function (d, i) {
+                    return xx(d.x);
+                })
+              .attr("y", function (d, i) {
+                  //console.log(d)
+                  return yy(d.y);
+              })
+              .attr("width", xx(1) - 1)
+              .attr("height", yy(1) - yy(2) - 1)
+              .style("fill", function (d) { return color(d.count*1.0/maxCount); })
+              .on("mouseover", function (d) {
+                //弹出提示框显示具体数据
+                tooltip.html("X:"+d.x+"  Y:"+d.y+"  Count:"+d.count)
+                .style("left", (d3.event.pageX + 10) + "px")
+                .style("top", (d3.event.pageY + 10) + "px")
+                .style("opacity", 1.0);//修改透明度使得提示框可见
+                d3.select(this).style("z-index", 2);
+                })
+               .on("mouseout", function (d) {
+                   tooltip.style("opacity", 0.0);//修改透明度使得提示框不可见
+               });
+
+            exitRect.remove();
+            
+            d3.selectAll(".TimeText")
+                .text(function(d){
+                var t = sunData[titi].time;
+                var hour = parseInt(t);
+                console.log(hour);
+                var min = parseInt((t-hour)*60);
+                if(min==48) min=5;
+                console.log(min);
+                var h = (hour<10)?"0":"";
+                var m = (min<10)?"0":"";
+                return h+hour+":"+m+min; 
+            });
+}
+        draw();
+        titi=0;
+
+        var scan = new Array(1);
+        var scantext = svg.selectAll(".TimeText")
+            .data(scan)
+            .enter()
+            .append("text")
+            .attr("class","TimeText")
+            .attr({'text-anchor': 'end'})
+            .attr("transform","translate(-30,-10)")
+            .attr("x", width)
+            .attr("y", height)
+            .text(function(d){
+                var t = sunData[titi].time;
+                var hour = parseInt(t);
+                var min = parseInt((t-hour)*60);
+                if(min==48) min=5;
+                var h = (hour<10)?"0":"";
+                var m = (min<10)?"0":"";
+                return h+hour+":"+m+min;
+            });
+
+        function next() {
+            titi++;
+            console.log(sunData[titi].time)
+            dataset = sunData[titi].data;
+            draw();
+        }
+        function last() {
+            titi--;
+            console.log(sunData[titi].time)
+            dataset = sunData[titi].data;
+            draw();
+        }
+        document.onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode==13){
+                    //要做的事情
+                    next();
+                }
+                if(e && e.keyCode==27){ 
+                    //要做的事情
+                    last();
+                }
+            }; 
+
+    </script>
+
+		
+         <footer id="footer">
+			<div class="container">
+				<div class="columnwrapp clearfix">
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-6" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-4" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-5" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-7" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+				</div>
+				<div class="copyright_block gutter clearfix">
+					<ul class="menufooter">
+						<li></li>
+					</ul>
+					<p class="copyright"></p>
+				</div>
+			</div>
+		</footer>
+</body>
+</html>

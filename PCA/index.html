@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<title>PCA Presentation</title>
+<link rel="pingback" href="../xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="wordpress/wp-content/themes/kasa-green/js/html5.js"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Feed" href="../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="DinoFun World! &raquo; Comments Feed" href="../comments/feed/index.html" />
+<link rel='stylesheet' id='kasa-green-style-css'  href='../wp-content/themes/kasa-green/style.css' type='text/css' media='all' />
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
+<script type='text/javascript' src='../wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="../xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress 4.1.1" />
+<link rel='canonical' href='index.html' />
+<link rel='shortlink' href='wordpress/?p=14' />
+</head>
+<body class="page page-id-14 page-template page-template-template-no-sidebar page-template-template-no-sidebar-php">
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="gutter clearfix">
+										<a class="logo" href="../index.html"><span class="color_orange">Visualization System</span><span class="italic"></span></a>
+															<div class="clear"></div>
+					<nav class="menucontainer clearfix">
+												   <ul class="menutop"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>												
+						<a class="menuicon" href="index.html#" >Menu</a>
+												   <ul class="menutopmob"><li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="../statistic/index.html">Statistic</a></li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="../heat-map/index.html">Heat Map</a></li>
+<li id="menu-item-36" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36"><a href="../path-tracking/index.html">Path Tracking</a></li>
+</ul>											</nav>
+				</div>
+			</div>
+		</header>  		<div class="page_title">
+			<div class="container">
+				<div class="gutter">
+					<p>PCA</p>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="container">
+				<div class="sidebar_right clearfix">
+					<section class="pagesection fullwidthpage">
+						<div class="gutter">
+							<article class="singlepost">
+							    <h2>Lodging</h2>
+								<h3>PCA降维</h3>
+<p><img class="alignright wp-image-60 size-medium" src="../wp-content/pca.jpg" alt="pterodactyl-lodge" width="400" height="214" />
+  在分析得到了十多维的特征向量后，只有把特征点的维度降到两维或者三维才能进行可视化分析，来分析得到离群的奇怪的点。并接着对这些点进行分析。<p/>
+  我们利用PCA的方法来对图片进行降维，右图是把特征点的维度降到两维后的结果，它可以保留原图片中45%的信息。
+  </p>
+
+<p><span class="clearfix">  </span></p>
+<h3>Kmeans 分类</h3>
+<p><img class="alignright size-medium wp-image-56" src="../wp-content/kmeans2.gif" alt="dinolodge" width="400" height="226" />
+  使用Kmeans的方法来对这些特征点进行分类，总共分成12类。Kmeans的步骤如下:</p>
+<ul>
+<li>随机选取12个中心点作为分类的中点</li>
+<li>将所有点根据他们离12个中心点的欧氏距离，将其分为离它们最近的类</li>
+<li>根据每个类中的所有项的特征的平均值，重新选定12个中心点</li>
+<li>不断重复2、3两步，直到所有中心点的分类情况趋于稳定</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;<br />
+<span class="clearfix">  </span><br />
+<h3>寻找异常点</h3>
+<p><img class="alignright size-medium wp-image-56" src="../wp-content/strange.jpg" alt="dinolodge" width="400" height="226" />
+  在得到分类后，可以在二维图中清楚地找到两个非常离群的点，它们的id是657863和1983765。我们会在后续中进一步分析这两个可疑id。</p>
+<span class="clearfix">  </span><br />
+			</div>
+
+							</article>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+
+         <footer id="footer">
+			<div class="container">
+				<div class="columnwrapp clearfix">
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-6" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-4" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-5" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+					<div class="column4">
+						<div class="gutter">
+														<aside id="text-7" class="widget widget_text"> 			<div class="textwidget"></div>
+		</aside>													</div>
+					</div>
+				</div>
+				<div class="copyright_block gutter clearfix">
+					<ul class="menufooter">
+						<li></li>
+					</ul>
+					<p class="copyright"></p>
+				</div>
+			</div>
+		</footer>
+	</div>
+<script type='text/javascript' src='../wp-content/themes/kasa-green/js/main.js?ver=1.0'></script>
+
+</body>
+</html>
